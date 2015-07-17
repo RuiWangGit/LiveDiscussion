@@ -28,6 +28,10 @@ io.sockets.on( 'connection', function( socket ) {
     console.log( "current live sockets number: "+count);
 
 
+   //  socket.on('something', function (name, fn) {
+	  //   fn('woot');
+	  // });
+
     //type variable in socketData
     //0 - request message; 
     //1 - regular chat message;
@@ -36,6 +40,7 @@ io.sockets.on( 'connection', function( socket ) {
     //4 - user online;
     //5 - user away;
     socket.on('chat_request', function(data){
+    	//callback('ok');	//this is dangerous, crashed my chrome
 		console.log(data);	
 		// console.log(data['type']);
 		
@@ -94,14 +99,15 @@ io.sockets.on( 'connection', function( socket ) {
 
 			}); 				
 		
-		}		
+		}	
+
     });
 
 
-	socket.on('reconnect', function(data){
-		console.log('.....reonnected!!!!');
+	// socket.on('connect', function(data){
+	// 	console.log('.....reonnected!!!!');
 
-	}); 
+	// }); 
 
     socket.on('disconnect', function(data){
     	count--;
