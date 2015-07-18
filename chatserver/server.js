@@ -4,7 +4,6 @@ var http = require( 'http' );
 
 var app = express();
 // var server = http.createServer( app );
-
 //var io = socket.listen( server );
 
 var server = app.listen(3001, function() {
@@ -12,12 +11,12 @@ var server = app.listen(3001, function() {
 })
 
 var io = require('socket.io')(server);
-
 var count = 0 ;
 
 
 var users = {}; // to store user data;
 var socketIDs  = {};
+
 
 
 io.sockets.on( 'connection', function( socket ) {
@@ -26,7 +25,6 @@ io.sockets.on( 'connection', function( socket ) {
     console.log( "New client !"+socket.id );
     count++ ; // to show current number of user active chatting.
     console.log( "current live sockets number: "+count);
-
 
    //  socket.on('something', function (name, fn) {
 	  //   fn('woot');
@@ -128,7 +126,8 @@ io.sockets.on( 'connection', function( socket ) {
     	
 
     });
-		
+
+    		
 
 });
 
